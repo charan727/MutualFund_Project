@@ -38,7 +38,7 @@ for file in files:
     print("\nDuplicate Records:")
     print(df.duplicated().sum())
 
-# Explore Fund Master
+# #####################################################Explore Fund Master#################################################
 print("\nColumns in Fund Master:")
 print(fund_master.columns.tolist())
 
@@ -68,3 +68,23 @@ missing_codes = set(fund_master["amfi_code"]) - set(nav_history["amfi_code"])
 print("Missing Codes:", missing_codes)
 
 print("Count:", len(missing_codes))
+
+# ############################################# Validate AMFI Codes##################################################
+
+fund_master_codes = set(fund_master["amfi_code"])
+nav_history_codes = set(nav_history["amfi_code"])
+
+missing_codes = fund_master_codes - nav_history_codes
+
+print("\nAMFI Code Validation")
+print("-" * 50)
+
+print(f"Total AMFI Codes in Fund Master: {len(fund_master_codes)}")
+print(f"Total AMFI Codes in NAV History: {len(nav_history_codes)}")
+print(f"Missing Codes: {len(missing_codes)}")
+
+if len(missing_codes) == 0:
+    print("Validation Passed: All AMFI codes in fund_master exist in nav_history.")
+else:
+    print("Validation Failed. Missing Codes:")
+    print(missing_codes)
