@@ -37,3 +37,34 @@ for file in files:
 
     print("\nDuplicate Records:")
     print(df.duplicated().sum())
+
+# Explore Fund Master
+print("\nColumns in Fund Master:")
+print(fund_master.columns.tolist())
+
+fund_master = pd.read_csv(
+    os.path.join(data_path, "01_fund_master.csv")
+)
+
+nav_history = pd.read_csv(
+    os.path.join(data_path, "02_nav_history.csv")
+)
+
+print("\nUnique Fund Houses:")
+print(fund_master["fund_house"].unique())
+
+print("\nCategories:")
+print(fund_master["category"].unique())
+
+print("\nSub Categories:")
+print(fund_master["subcategory"].unique())
+
+print("\nRisk Grades:")
+print(fund_master["risk_grade"].unique())
+
+
+missing_codes = set(fund_master["amfi_code"]) - set(nav_history["amfi_code"])
+
+print("Missing Codes:", missing_codes)
+
+print("Count:", len(missing_codes))
