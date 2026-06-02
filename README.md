@@ -36,3 +36,13 @@ See `requirements.txt` for all Python dependencies.
 ## License
 
 MIT License
+
+# Data Quality Summary
+
+- Successfully loaded all 10 datasets.
+- Verified dataset schema and data types.
+- Checked for missing values and duplicates.
+- Explored fund houses, categories, sub-categories, and risk grades.
+- Validated AMFI scheme codes between fund_master and nav_history.
+- All AMFI codes in fund_master exist in nav_history.
+- No major data quality issues were identified during initial ingestion.
