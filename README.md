@@ -45,4 +45,4 @@ MIT License
 - Explored fund houses, categories, sub-categories, and risk grades.
 - Validated AMFI scheme codes between fund_master and nav_history.
 - All AMFI codes in fund_master exist in nav_history.
-- No major data quality issues were identified during initial ingestion.
+- No major data quality issues were identified during initial ingestion
