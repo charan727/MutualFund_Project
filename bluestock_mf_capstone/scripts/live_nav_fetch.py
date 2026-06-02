@@ -9,7 +9,8 @@ schemes = {
     "ICICI_Bluechip": 120503,
     "Nippon_Large_Cap": 118632,
     "Axis_Bluechip": 119092,
-    "Kotak_Bluechip": 120841
+    "Kotak_Bluechip": 120841,
+    "HDFC_Bluechip": 125497
 }
 
 for fund_name, scheme_code in schemes.items():
