@@ -114,4 +114,4 @@ tx_df.to_sql('fact_transactions', db_engine, if_exists='replace', index=False)
 perf_df.to_sql('fact_performance', db_engine, if_exists='replace', index=False)
 aum_df.to_sql('fact_aum', db_engine, if_exists='replace', index=False)
 
-print("\n🎉 SUCCESS! All data cleaned and database built without errors!")
+print("\n SUCCESS! All data cleaned and database built without errors!")
