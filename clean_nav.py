@@ -5,7 +5,6 @@ from sqlalchemy import create_engine
 
 print("🚀 MD & Charan's Day 2 Data Pipeline Started...")
 
-# 1. Output folders scripts ఫోల్డర్ కి బయట క్రియేట్ అవ్వడానికి (../ వాడుతున్నాం)
 os.makedirs('../data/processed', exist_ok=True)
 
 # ==========================================
@@ -13,13 +12,11 @@ os.makedirs('../data/processed', exist_ok=True)
 # ==========================================
 try:
     print("⏳ Processing nav_history.csv...")
-    # నీ డేటా ఫోల్డర్ బయట ఉంది కాబట్టి '../Data/' అని ఇచ్చాను
     nav_df = pd.read_csv('../Data/nav_history.csv') 
     
     nav_df['date'] = pd.to_datetime(nav_df['date'])
     nav_df = nav_df.sort_values(by=['amfi_code', 'date'])
-    
-    # Missing values fill చేయడం
+
     nav_df['nav'] = nav_df.groupby('amfi_code')['nav'].ffill()
     nav_df = nav_df.drop_duplicates()
     nav_df = nav_df[nav_df['nav'] > 0]
@@ -95,7 +92,6 @@ aum_df.to_csv('../data/processed/clean_scheme_aum.csv', index=False)
 # PHASE 4: SQLITE LOADING (STAR SCHEMA)
 # ==========================================
 print("⏳ Injecting Clean Data into SQLite Database (bluestock_mf.db)...")
-# Database కూడా మెయిన్ ఫోల్డర్ లో పడటానికి '../' ఇచ్చాను
 db_engine = create_engine('sqlite:///../bluestock_mf.db')
 
 dim_date = pd.DataFrame({'date': pd.date_range(start='2024-01-01', end='2024-12-31')})
