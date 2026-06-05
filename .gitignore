@@ -109,6 +109,6 @@ venv.bak/
 Thumbs.db
 
 # Data files (large CSV files)
-data/raw/*.csv
-data/processed/*.csv
+#data/raw/*.csv
+#data/processed/*.csv
 
